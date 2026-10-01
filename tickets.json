@@ -10,14 +10,14 @@
       "id": "PROJ-202",
       "title": "Webhook Retry Mechanism",
       "type": "New Feature",
-      "version": "2.4.0",
+      "version": "2.5.0",
       "description": "Implemented exponential backoff retry logic for failed webhook deliveries up to 5 attempts."
     },
     {
       "id": "PROJ-203",
       "title": "Bulk CSV Export",
       "type": "New Feature",
-      "version": "2.4.0",
+      "version": "2.6.0",
       "description": "Added a new endpoint to stream large datasets to CSV using pagination to prevent memory timeouts."
     },
     {
@@ -31,14 +31,14 @@
       "id": "PROJ-205",
       "title": "Global Search Indexing Upgrade",
       "type": "Enhancement",
-      "version": "2.4.0",
+      "version": "2.5.0",
       "description": "Upgraded Elasticsearch cluster and optimized the indexing pipeline for faster fuzzy matching."
     },
     {
       "id": "PROJ-206",
       "title": "Increase API Rate Limits",
       "type": "Enhancement",
-      "version": "2.4.0",
+      "version": "2.6.0",
       "description": "Bumped the standard tier rate limit from 100 req/min to 500 req/min in the API gateway config."
     }
   ]
