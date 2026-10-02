@@ -1,44 +1,317 @@
 [
-    {
-      "id": "PROJ-201",
-      "title": "Implement Dark Mode UI",
-      "type": "New Feature",
-      "version": "2.4.0",
-      "description": "Added CSS variables and a toggle in the user preferences table to switch the DOM to dark theme."
-    },
-    {
-      "id": "PROJ-202",
-      "title": "Webhook Retry Mechanism",
-      "type": "New Feature",
-      "version": "2.5.0",
-      "description": "Implemented exponential backoff retry logic for failed webhook deliveries up to 5 attempts."
-    },
-    {
-      "id": "PROJ-203",
-      "title": "Bulk CSV Export",
-      "type": "New Feature",
-      "version": "2.6.0",
-      "description": "Added a new endpoint to stream large datasets to CSV using pagination to prevent memory timeouts."
-    },
-    {
-      "id": "PROJ-204",
-      "title": "Dashboard Load Time Optimization",
-      "type": "Enhancement",
-      "version": "2.4.0",
-      "description": "Implemented Redis caching for the main dashboard widget queries, reducing DB hits."
-    },
-    {
-      "id": "PROJ-205",
-      "title": "Global Search Indexing Upgrade",
-      "type": "Enhancement",
-      "version": "2.5.0",
-      "description": "Upgraded Elasticsearch cluster and optimized the indexing pipeline for faster fuzzy matching."
-    },
-    {
-      "id": "PROJ-206",
-      "title": "Increase API Rate Limits",
-      "type": "Enhancement",
-      "version": "2.6.0",
-      "description": "Bumped the standard tier rate limit from 100 req/min to 500 req/min in the API gateway config."
-    }
-  ]
+  {
+    "id": "PROJ-201",
+    "title": "Implement Dark Mode UI",
+    "type": "New Feature",
+    "version": "2.4.0",
+    "description": "Added CSS variables and a toggle in the user preferences table to switch the DOM to dark theme."
+  },
+  {
+    "id": "PROJ-202",
+    "title": "Webhook Retry Mechanism",
+    "type": "New Feature",
+    "version": "2.4.0",
+    "description": "Implemented exponential backoff retry logic for failed webhook deliveries up to 5 attempts."
+  },
+  {
+    "id": "PROJ-203",
+    "title": "Bulk CSV Export",
+    "type": "New Feature",
+    "version": "2.4.0",
+    "description": "Added a new endpoint to stream large datasets to CSV using pagination to prevent memory timeouts."
+  },
+  {
+    "id": "PROJ-204",
+    "title": "Multi-Factor Authentication",
+    "type": "New Feature",
+    "version": "2.5.0",
+    "description": "Integrated TOTP-based 2FA using authenticator apps with QR code generation and backup codes."
+  },
+  {
+    "id": "PROJ-205",
+    "title": "Custom Dashboard Widgets",
+    "type": "New Feature",
+    "version": "2.5.0",
+    "description": "Built drag-and-drop widget system with localStorage persistence and configurable data sources."
+  },
+  {
+    "id": "PROJ-206",
+    "title": "API Rate Limiting Dashboard",
+    "type": "New Feature",
+    "version": "2.5.0",
+    "description": "Created admin panel to view and adjust rate limits per API key with real-time usage metrics."
+  },
+  {
+    "id": "PROJ-207",
+    "title": "Scheduled Report Generation",
+    "type": "New Feature",
+    "version": "2.6.0",
+    "description": "Implemented cron-based job scheduler to generate and email PDF reports at configurable intervals."
+  },
+  {
+    "id": "PROJ-208",
+    "title": "Team Collaboration Spaces",
+    "type": "New Feature",
+    "version": "2.6.0",
+    "description": "Added shared workspaces with role-based permissions, activity feeds, and real-time notifications."
+  },
+  {
+    "id": "PROJ-209",
+    "title": "Advanced Search Filters",
+    "type": "New Feature",
+    "version": "2.6.0",
+    "description": "Built query parser supporting boolean operators, date ranges, and custom field filtering."
+  },
+  {
+    "id": "PROJ-210",
+    "title": "Data Import Wizard",
+    "type": "New Feature",
+    "version": "2.6.0",
+    "description": "Created multi-step import flow with validation, field mapping, and error handling for CSV/JSON files."
+  },
+  {
+    "id": "PROJ-211",
+    "title": "Mobile Push Notifications",
+    "type": "New Feature",
+    "version": "2.6.0",
+    "description": "Integrated Firebase Cloud Messaging for iOS and Android with topic-based subscription management."
+  },
+  {
+    "id": "PROJ-212",
+    "title": "Audit Log Viewer",
+    "type": "New Feature",
+    "version": "2.4.0",
+    "description": "Built searchable audit trail with user action tracking, timestamp filtering, and export capabilities."
+  },
+  {
+    "id": "PROJ-213",
+    "title": "User Profile Screen - New Fields",
+    "type": "New Feature",
+    "version": "2.4.0",
+    "description": "Added new fields to the User Profile screen. Fields and descriptions: | Field | Description | |-------|-------------| | Timezone | Select your local timezone for accurate scheduling | | Language Preference | Choose interface language from 12 supported options | | Notification Sound | Pick from 5 alert sounds or disable completely | | Two-Step Verification | Enable SMS or authenticator app backup codes | | Account Recovery Email | Add secondary email for password recovery |"
+  },
+  {
+    "id": "PROJ-214",
+    "title": "Product Details Screen - New Fields",
+    "type": "New Feature",
+    "version": "2.5.0",
+    "description": "Enhanced Product Details screen with additional information fields. Fields and descriptions: | Field | Description | |-------|-------------| | SKU Number | Unique product identifier for inventory tracking | | Supplier Name | Name of the vendor providing this product | | Stock Status | Real-time availability: In Stock, Low Stock, Out of Stock | | Warranty Period | Duration of manufacturer warranty coverage | | Return Policy | Number of days allowed for returns and conditions |"
+  },
+  {
+    "id": "PROJ-215",
+    "title": "Order Summary Screen - New Fields",
+    "type": "New Feature",
+    "version": "2.4.0",
+    "description": "Order Summary screen now displays comprehensive order details. Fields and descriptions: | Field | Description | |-------|-------------| | Order Tracking Number | Unique identifier to track shipment progress | | Estimated Delivery Date | Expected arrival date based on shipping method | | Payment Method | How the order was paid: Credit Card, PayPal, etc. | | Discount Applied | Any promotional codes or loyalty discounts used | | Shipping Address | Complete delivery address with contact information | | Order Notes | Special instructions or comments added by customer |"
+  },
+  {
+    "id": "PROJ-216",
+    "title": "Dashboard Load Time Optimization",
+    "type": "Enhancement",
+    "version": "2.4.0",
+    "description": "Implemented Redis caching for the main dashboard widget queries, reducing DB hits."
+  },
+  {
+    "id": "PROJ-217",
+    "title": "Global Search Indexing Upgrade",
+    "type": "Enhancement",
+    "version": "2.4.0",
+    "description": "Upgraded Elasticsearch cluster and optimized the indexing pipeline for faster fuzzy matching."
+  },
+  {
+    "id": "PROJ-218",
+    "title": "Increase API Rate Limits",
+    "type": "Enhancement",
+    "version": "2.4.0",
+    "description": "Bumped the standard tier rate limit from 100 req/min to 500 req/min in the API gateway config."
+  },
+  {
+    "id": "PROJ-219",
+    "title": "File Upload Size Limit Increase",
+    "type": "Enhancement",
+    "version": "2.5.0",
+    "description": "Increased max upload size from 10MB to 100MB and added chunked upload support for large files."
+  },
+  {
+    "id": "PROJ-220",
+    "title": "Email Notification Batching",
+    "type": "Enhancement",
+    "version": "2.5.0",
+    "description": "Implemented digest mode to batch notifications into daily/weekly summaries instead of individual emails."
+  },
+  {
+    "id": "PROJ-221",
+    "title": "Database Query Optimization",
+    "type": "Enhancement",
+    "version": "2.5.0",
+    "description": "Added composite indexes and rewrote N+1 queries to reduce average response time by 60%."
+  },
+  {
+    "id": "PROJ-222",
+    "title": "User Interface Accessibility Improvements",
+    "type": "Enhancement",
+    "version": "2.5.0",
+    "description": "Added ARIA labels, keyboard navigation, and screen reader support across all major components."
+  },
+  {
+    "id": "PROJ-223",
+    "title": "Session Management Enhancement",
+    "type": "Enhancement",
+    "version": "2.6.0",
+    "description": "Extended session timeout from 30 minutes to 8 hours and added 'remember me' functionality."
+  },
+  {
+    "id": "PROJ-224",
+    "title": "Report Generation Speed",
+    "type": "Enhancement",
+    "version": "2.6.0",
+    "description": "Parallelized PDF generation and added background processing to reduce wait time from 45s to 8s."
+  },
+  {
+    "id": "PROJ-225",
+    "title": "API Response Compression",
+    "type": "Enhancement",
+    "version": "2.6.0",
+    "description": "Enabled gzip compression for all API responses, reducing payload size by average of 70%."
+  },
+  {
+    "id": "PROJ-226",
+    "title": "User Profile Customization",
+    "type": "Enhancement",
+    "version": "2.6.0",
+    "description": "Added customizable themes, font size options, and layout preferences stored in user settings."
+  },
+  {
+    "id": "PROJ-227",
+    "title": "Login Page Null Pointer Exception",
+    "type": "Bug",
+    "version": "2.4.0",
+    "description": "Fixed crash when email field was empty during OAuth redirect. Added null check before processing."
+  },
+  {
+    "id": "PROJ-228",
+    "title": "Dashboard Widget Data Mismatch",
+    "type": "Bug",
+    "version": "2.4.0",
+    "description": "Corrected timezone conversion issue causing widget data to display previous day's metrics."
+  },
+  {
+    "id": "PROJ-229",
+    "title": "CSV Export Encoding Error",
+    "type": "Bug",
+    "version": "2.4.0",
+    "description": "Fixed UTF-8 BOM missing in exported CSV files causing special characters to display incorrectly in Excel."
+  },
+  {
+    "id": "PROJ-230",
+    "title": "Search Results Pagination Broken",
+    "type": "Bug",
+    "version": "2.4.0",
+    "description": "Resolved off-by-one error in pagination logic that skipped the first result on page 2+."
+  },
+  {
+    "id": "PROJ-231",
+    "title": "Password Reset Email Not Sending",
+    "type": "Bug",
+    "version": "2.5.0",
+    "description": "Fixed SMTP configuration issue where password reset emails were queued but never delivered."
+  },
+  {
+    "id": "PROJ-232",
+    "title": "Mobile App Crash on Image Upload",
+    "type": "Bug",
+    "version": "2.5.0",
+    "description": "Resolved memory leak in image compression library causing crashes on devices with <2GB RAM."
+  },
+  {
+    "id": "PROJ-233",
+    "title": "API Key Deletion Not Revoking Access",
+    "type": "Bug",
+    "version": "2.5.0",
+    "description": "Fixed race condition where deleted API keys remained valid for up to 5 minutes due to cache delay."
+  },
+  {
+    "id": "PROJ-234",
+    "title": "Duplicate Notifications on Webhook Failure",
+    "type": "Bug",
+    "version": "2.5.0",
+    "description": "Eliminated duplicate notification emails when webhook retry logic triggered multiple failure alerts."
+  },
+  {
+    "id": "PROJ-235",
+    "title": "Date Picker Showing Wrong Month",
+    "type": "Bug",
+    "version": "2.5.0",
+    "description": "Fixed calendar component displaying January instead of December when navigating backwards."
+  },
+  {
+    "id": "PROJ-236",
+    "title": "User Avatar Upload Failing Silently",
+    "type": "Bug",
+    "version": "2.6.0",
+    "description": "Added proper error handling and user feedback when avatar upload exceeds size limit or fails validation."
+  },
+  {
+    "id": "PROJ-237",
+    "title": "Report PDF Missing Charts",
+    "type": "Bug",
+    "version": "2.6.0",
+    "description": "Fixed chart rendering library not initializing before PDF generation, causing blank chart areas."
+  },
+  {
+    "id": "PROJ-238",
+    "title": "Team Invitation Link Expiring Too Early",
+    "type": "Bug",
+    "version": "2.6.0",
+    "description": "Corrected token expiration calculation that was using minutes instead of hours for 7-day invites."
+  },
+  {
+    "id": "PROJ-239",
+    "title": "Keyboard Shortcut Conflict in Editor",
+    "type": "Bug",
+    "version": "2.6.0",
+    "description": "Resolved Ctrl+S conflict between browser save and in-app save, now properly intercepted."
+  },
+  {
+    "id": "PROJ-240",
+    "title": "Audit Log Showing Incorrect User",
+    "type": "Bug",
+    "version": "2.6.0",
+    "description": "Fixed session handling bug where actions by admin users were logged under the previous user's ID."
+  },
+  {
+    "id": "PROJ-241",
+    "title": "Webhook Payload Missing Timestamp",
+    "type": "Bug",
+    "version": "2.4.0",
+    "description": "Added ISO 8601 timestamp field to webhook payload that was accidentally removed in v2.3.0."
+  },
+  {
+    "id": "PROJ-242",
+    "title": "Browser Back Button Breaking Navigation",
+    "type": "Bug",
+    "version": "2.6.0",
+    "description": "Fixed SPA router not properly handling browser history state, causing blank pages on back navigation."
+  },
+  {
+    "id": "PROJ-243",
+    "title": "Email Template Rendering HTML Tags",
+    "type": "Bug",
+    "version": "2.6.0",
+    "description": "Corrected email template engine to properly escape HTML instead of displaying raw tags to users."
+  },
+  {
+    "id": "PROJ-244",
+    "title": "API Returning 500 on Invalid JSON",
+    "type": "Bug",
+    "version": "2.6.0",
+    "description": "Added proper JSON parsing error handling to return 400 Bad Request instead of 500 Internal Server Error."
+  },
+  {
+    "id": "PROJ-245",
+    "title": "Notification Preferences Not Saving",
+    "type": "Bug",
+    "version": "2.6.0",
+    "description": "Fixed localStorage quota exceeded error preventing notification settings from persisting across sessions."
+  }
+]

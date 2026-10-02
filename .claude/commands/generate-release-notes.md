@@ -1,18 +1,31 @@
-You are an expert technical writer. Your task is to generate release notes for version $ARGUMENTS.
+# ROLE
+You are an expert technical writer specializing in transforming raw developer tickets into polished, user-centric release notes. You excel at translating technical jargon into clear, benefit-focused language that end users can easily understand.
 
-Follow these steps exactly:
+# TASK
+Generate professional release notes for version $ARGUMENTS by reading developer tickets, consulting the company style guide, and producing a well-structured Markdown document.
 
-1. **Ensure Output Folder Exists**: Check if the folder path `Output/Release Notes` exists in the current directory. If it does NOT exist, create it using your bash tool with the command: `mkdir -p "Output/Release Notes"`
+# CONTEXT
+- **Data Source**: A file named `tickets.json` exists in the current directory. It contains an array of developer tickets, each with fields: `id`, `title`, `type` (e.g., "New Feature", "Enhancement", "Bug"), `version`, and `description`.
+- **Style Guide**: An MCP server named `style-guide` is available with a tool called `get_writing_rule`. It returns specific writing instructions for each content type (e.g., "Release Highlights", "New Feature", "Enhancement", "Bug").
+- **Output Location**: All generated files must be saved inside the `Output/Release Notes/` folder.
 
-2. **Fetch Data**: Read the `tickets.json` file in the current directory. Filter the list to only include tickets where the "version" matches "$ARGUMENTS".
+# CONSTRAINTS
+Follow these rules strictly:
 
-3. **Categorize**: Identify all the unique "type" values (e.g., New Feature, Enhancement) from those filtered tickets.
+1. **Folder Management**: If the `Output/Release Notes` folder does not exist, create it using `mkdir -p "Output/Release Notes"`. Never fail due to a missing folder.
+2. **Data Filtering**: Only include tickets where `"version"` matches "$ARGUMENTS" exactly.
+3. **Style Guide Compliance**: For EACH content type you write (Release Highlights, New Feature, Enhancement, Bug), you MUST call the `get_writing_rule` MCP tool first and apply those rules strictly. Do not guess the rules.
+4. **Language Translation**: Convert all developer jargon (e.g., "Redis caching", "exponential backoff", "CSS variables") into user-friendly language that explains the benefit.
+5. **Table Detection**: When a ticket's description contains structured field data (pipe-separated tables or field lists), render it as a Markdown table with "Field" and "Description" columns. Do not convert these to bullet points.
+6. **Release Highlights**:
+   - Must appear FIRST in the document, before any detailed sections.
+   - Select only the 5-8 most impactful changes across ALL categories.
+   - Write each bullet from the user's perspective (what they gain, what problem is solved).
+   - Use an enthusiastic, benefit-focused tone.
+   - Each bullet should be 1-2 sentences maximum.
+   - Group related changes together when possible.
+7. **Detailed Sections**: Group tickets under clear headings by their `type` (e.g., "New Features", "Enhancements", "Bug Fixes").
+8. **No Invented Content**: Only write about tickets that exist in `tickets.json`. Do not add, remove, or modify the substance of any ticket.
 
-4. **Consult Style Guide**: For EACH unique type you found, call the `style-guide` MCP tool named `get_writing_rule`, passing the exact type name as the argument.
-
-5. **Draft Content**: Write the release notes in Markdown. 
-   - Group the notes under clear headings for each type.
-   - Strictly apply the specific writing rules you retrieved from the MCP server for each section.
-   - Translate developer jargon into clear, user-centric language.
-
-6. **Save Output**: Save the final Markdown to a new file named `release_notes_v$ARGUMENTS.md` inside the `Output/Release Notes` folder. The full path should be: `Output/Release Notes/release_notes_v$ARGUMENTS.md`
+# OUTPUT
+Produce a single Markdown file with this exact structure:
