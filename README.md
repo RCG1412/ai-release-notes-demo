@@ -1,5 +1,9 @@
 # About this demo
 
-This is a demo created to showcase the application of AI agent with skills and MCP servers for generating release notes.
+## Overview
+This demonstration showcases an autonomous AI agent leveraging specialized skills and Model Context Protocol (MCP) servers to automate the generation of release notes and evaluate content quality against predefined metrics.
 
-In this demo I have created a `.json` file that contains all the tickets for which release notes need to be generated. A MCP server that provides the writing rules and skill based on RTCCO framework defines the structure and tone of the content and the output format.
+## Key Components
+- **Input Data:** A centralized .json dataset containing the backlog tickets and change logs required for release note generation.
+- **MCP Integration:** A Model Context Protocol (MCP) server that supplies domain-specific writing rules and structured guidelines.
+- **RTCCO Framework:** Utilizes the RTCCO framework to enforce professional structure, consistent tone, and standardized output formatting.
