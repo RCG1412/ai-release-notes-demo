@@ -1,8 +1,12 @@
 {
   "mcpServers": {
-    "release-notes-style-guide": {
+    "style-guide": {
       "command": "npx",
       "args": ["tsx", "style-guide-server.ts"]
+    },
+    "quality-metrics": {
+      "command": "npx",
+      "args": ["tsx", "quality-metrics-server.ts"]
     }
   }
 }
