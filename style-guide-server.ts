@@ -20,7 +20,7 @@ server.tool(
   "get_writing_rule",
   "Get the specific writing rules for a type of release note content",
   {
-    content_type: z.string().describe("The type of content (e.g., 'New Feature', 'Enhancement', 'Bug')"),
+    content_type: z.string().describe("The type of content (e.g., 'New Feature', 'Enhancement')"),
   },
   async ({ content_type }) => {
     const rule = writingRules[content_type] || "Use a professional, clear, and concise tone. Avoid jargon.";
