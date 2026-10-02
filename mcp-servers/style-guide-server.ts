@@ -4,7 +4,7 @@ import { z } from "zod";
 
 // Create the MCP server
 const server = new McpServer({
-  name: "TechWriterStyleGuide",
+  name: "ReleaseNotesStyleGuide",  // ← CHANGED from "TechWriterStyleGuide"
   version: "1.0.0",
 });
 
@@ -43,7 +43,7 @@ server.tool(
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("Style Guide MCP Server running on stdio");
+  console.error("Release Notes Style Guide MCP Server running on stdio");
 }
 
 main().catch((error) => {

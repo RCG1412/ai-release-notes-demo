@@ -1,5 +1,6 @@
 {
   "enabledMcpjsonServers": [
-    "style-guide"
+    "style-guide",
+    "release-notes-style-guide"
   ]
 }
