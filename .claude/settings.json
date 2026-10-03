@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__style-guide__get_writing_rule",
+      "mcp__quality-metrics__get_scoring_rubric",
+      "mcp__quality-metrics__get_readability_thresholds",
+      "Read",
+      "Write",
+      "PowerShell"
+    ]
+  }
+}
