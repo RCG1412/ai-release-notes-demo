@@ -2,15 +2,18 @@
   "mcpServers": {
     "style-guide": {
       "command": "npx",
-      "args": ["tsx", "mcp-servers/style-guide-server.ts"]
+      "args": ["tsx", "style-guide-server.ts"],
+      "cwd": "./mcp-servers"
     },
     "quality-metrics": {
       "command": "npx",
-      "args": ["tsx", "mcp-servers/quality-metrics-server.ts"]
+      "args": ["tsx", "quality-metrics-server.ts"],
+      "cwd": "./mcp-servers"
     },
     "release-notes-style-guide": {
       "command": "npx",
-      "args": ["tsx", "mcp-servers/style-guide-server.ts"]
+      "args": ["tsx", "style-guide-server.ts"],
+      "cwd": "./mcp-servers"
     }
   }
 }
