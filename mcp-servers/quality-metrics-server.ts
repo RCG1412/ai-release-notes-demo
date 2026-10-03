@@ -74,14 +74,14 @@ server.tool(
   "get_scoring_rubric",
   "Get the scoring rubric for a specific quality category",
   {
-    category: z.enum(["accuracy", "completeness", "relevance", "clarity", "consistency"]).describe("The quality category to get rubric for"),
+    category: z.enum(["accuracy", "completeness", "relevance", "clarity", "consistency"]),
   },
   async ({ category }) => {
     return {
       content: [
         {
           type: "text",
-          text: JSON.stringify(scoringRubrics[category], null, 2),
+          text: JSON.stringify(scoringRubrics[category as keyof typeof scoringRubrics], null, 2),
         },
       ],
     };
