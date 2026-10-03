@@ -14,18 +14,18 @@ Evaluate the quality of the generated release notes file for version $ARGUMENTS 
 # CONSTRAINTS
 Follow these rules strictly:
 
-1. **Approval Gate**: Before starting any analysis, display a message asking: "I'm ready to evaluate the quality of release_notes_v$ARGUMENTS.md. Would you like me to proceed with the quality check? (y/n)" Wait for user confirmation before continuing.
+1. **Approval**: Before starting any analysis, display a message asking: "I'm ready to evaluate the quality of release_notes_v$ARGUMENTS.md. Would you like me to proceed with the quality check? (yes/no)" Wait for user confirmation before continuing.
 
 2. **Folder Management**: If the `Output/Quality Reports` folder does not exist, create it using `mkdir -p "Output/Quality Reports"`.
 
 3. **Readability Analysis**:
    - Calculate Flesch Reading Ease score (0-100 scale)
-   - Calculate Flesch-Kincaid Grade Level (US school grade level)
    - Calculate Gunning Fog Index (years of formal education needed)
    - Calculate average sentence length (words per sentence)
    - Calculate average words per paragraph
    - Identify sentences longer than 25 words
    - Identify complex words (3+ syllables)
+   - Indetify paragraphs with more than 3 sentences
    - For each metric, compare against recommended thresholds and suggest improvements if needed
 
 4. **Content Quality Evaluation**:
@@ -37,7 +37,7 @@ Follow these rules strictly:
    - **Style Guide Compliance**: Verify that each section follows the rules defined in the quality-metrics MCP server.
 
 5. **Release Highlights Evaluation**:
-   - Verify that 5-8 highlights are present
+   - Verify that highlights are present
    - Check that highlights represent the most impactful changes
    - Ensure highlights are written from user perspective
    - Confirm no technical jargon in highlights
