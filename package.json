@@ -1,0 +1,20 @@
+{
+  "name": "ai-release-notes-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:quality": "tsx mcp-servers/quality-metrics-server.ts",
+    "dev:style": "tsx mcp-servers/style-guide-server.ts",
+    "dev:all": "tsx mcp-servers/quality-metrics-server.ts & tsx mcp-servers/style-guide-server.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.31.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
