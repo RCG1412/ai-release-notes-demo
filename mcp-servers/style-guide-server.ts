@@ -4,19 +4,16 @@ import { z } from "zod";
 
 // Create the MCP server
 const server = new McpServer({
-  name: "ReleaseNotesStyleGuide",  // ← CHANGED from "TechWriterStyleGuide"
+  name: "ReleaseNotesStyleGuide",
   version: "1.0.0",
 });
 
 // Define the writing rules (your style guide!)
 const writingRules: Record<string, string> = {
-  "Release Highlights": "Create a high-level summary section at the top of the release notes. Select the 5-8 most impactful changes across all categories (New Features, Enhancements, Bug Fixes). Write each bullet point from the user's perspective: what they can now do, how their experience improved, or what problem was solved. Use an enthusiastic, benefit-focused tone. Avoid technical jargon. Each bullet should be 1-2 sentences max. Focus on value, not implementation details. Group related changes when possible (e.g., 'Enhanced security with new 2FA options and account recovery').",
-  
-  "New Feature": "Focus on the 'What' and the 'Why'. Highlight the new capability and how it solves a user problem. Use an enthusiastic but professional tone. Strictly avoid implementation details like database names or CSS classes. IMPORTANT: When a ticket contains structured field information (like 'Fields and descriptions' with pipe-separated data or field lists), present it as a Markdown table with columns 'Field' and 'Description'. Do not list these as bullet points.",
-  
-  "Enhancement": "Focus on the 'Before vs. After' or the specific metric improved (e.g., faster, larger limits). Frame it as an upgrade to an existing workflow. Do not mention internal infrastructure changes unless it directly impacts the user. Use bullet points for enhancements.",
-  
-  "Bug": "Acknowledge the issue briefly without blaming. Focus on the resolution and the improved user experience. Do not include technical details about the root cause unless it helps users understand the fix. Use bullet points for bug fixes."
+  "Release Highlights": "Create a high-level summary section at the top of the release notes. Select the 5-8 most impactful changes across all categories (New Features, Enhancements, Bug Fixes). Write in clear, user-focused language that emphasizes business value and impact. Avoid implementation details and internal terminology.",
+  "New Feature": "Focus on the 'What' and the 'Why'. Highlight the new capability and how it solves a user problem. Use an enthusiastic but professional tone. Strictly avoid implementation details and technical jargon.",
+  "Enhancement": "Focus on the 'Before vs. After' or the specific metric improved (e.g., faster, larger limits). Frame it as an upgrade to an existing workflow. Do not mention internal infrastructure changes.",
+  "Bug": "Acknowledge the issue briefly without blaming. Focus on the resolution and the improved user experience. Do not include technical details about the root cause unless it helps users understand the fix.",
 };
 
 // Register the tool
