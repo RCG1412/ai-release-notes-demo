@@ -2,17 +2,11 @@
   "mcpServers": {
     "style-guide": {
       "command": "node",
-      "args": ["--loader", "tsx", "mcp-servers/style-guide-server.ts"],
-      "env": {
-        "NODE_OPTIONS": "--loader tsx"
-      }
+      "args": ["--loader=tsx", "./mcp-servers/style-guide-server.ts"]
     },
     "quality-metrics": {
       "command": "node",
-      "args": ["--loader", "tsx", "mcp-servers/quality-metrics-server.ts"],
-      "env": {
-        "NODE_OPTIONS": "--loader tsx"
-      }
+      "args": ["--loader=tsx", "./mcp-servers/quality-metrics-server.ts"]
     }
   }
 }
