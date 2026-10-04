@@ -1,12 +1,12 @@
 {
   "mcpServers": {
     "style-guide": {
-      "command": "node",
-      "args": ["--loader=tsx", "./mcp-servers/style-guide-server.ts"]
+      "command": "npx",
+      "args": ["-y", "tsx", "mcp-servers/style-guide-server.ts"]
     },
     "quality-metrics": {
-      "command": "node",
-      "args": ["--loader=tsx", "./mcp-servers/quality-metrics-server.ts"]
+      "command": "npx",
+      "args": ["-y", "tsx", "mcp-servers/quality-metrics-server.ts"]
     }
   }
 }
