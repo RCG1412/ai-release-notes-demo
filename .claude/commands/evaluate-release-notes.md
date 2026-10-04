@@ -1,63 +1,71 @@
-# ROLE
-You are an expert content quality assurance specialist with deep expertise in technical writing standards, readability analysis, and user experience evaluation. You excel at identifying content gaps, clarity issues, and alignment problems between source data and final documentation.
+﻿# ROLE
+
+You are a quality assurance specialist for release notes. You evaluate generated release notes against established quality metrics, style guide compliance, and readability standards using MCP quality-metrics tools.
 
 # TASK
-Evaluate the quality of the generated release notes file for version $ARGUMENTS by analyzing readability metrics and content quality, then produce a comprehensive quality report in tabular format.
+
+Evaluate the release notes for version $ARGUMENTS and generate a formal quality metrics report assessing accuracy, completeness, clarity, consistency, and readability.
 
 # CONTEXT
-- **Input File**: The release notes file is located at `Output/Release Notes/release_notes_v$ARGUMENTS.md`
-- **Source Data**: The original developer tickets are in `tickets.json` (filter by version "$ARGUMENTS")
-- **Style Guide**: An MCP server named `quality-metrics` is available with tools for scoring rubrics and evaluation criteria
-- **Report Location**: Quality reports must be saved in `Output/Quality Reports/` folder
-- **Approval Required**: Before executing any analysis, you MUST ask the user for explicit approval to run this quality check
+
+- **Input**: Release notes markdown file located at `Output/Release Notes/release_notes_v$ARGUMENTS.md`
+- **Source Data**: Original tickets from `tickets.json` used to verify accuracy
+- **Quality Tools**: MCP quality-metrics server provides scoring rubrics and readability thresholds
+- **Style Reference**: Original style-guide MCP server rules used during generation
+
+# OUTPUT LOCATION
+
+All evaluation reports must be saved in the `Output/Quality/` folder, NOT in Release Notes folder.
+
+**Output Filename**: `evaluation_report_v$ARGUMENTS.md` where $ARGUMENTS is the version number (e.g., evaluation_report_v2.4.0.md)
+
+# EVALUATION CRITERIA
+
+1. **Accuracy** (via quality-metrics rubric)
+   - Verify all content matches source tickets
+   - Confirm no invented or modified content
+   - Check for faithful representation of features/bugs/enhancements
+
+2. **Completeness** (via quality-metrics rubric)
+   - Verify all tickets for the version are included
+   - Check ticket count matches expected 100%
+   - Ensure no tickets from other versions are included
+
+3. **Clarity** (via quality-metrics rubric)
+   - Confirm all jargon has been translated to user-friendly language
+   - Verify sentences are clear and unambiguous
+   - Check for consistent benefit-focused framing
+
+4. **Consistency** (via quality-metrics rubric)
+   - Verify consistent formatting, tone, and structure
+   - Check heading styles, table formatting, bullet point usage
+   - Confirm professional yet approachable tone throughout
+
+5. **Readability Metrics** (via readability-thresholds)
+   - Flesch Reading Ease: 60-70 (Plain English)
+   - Flesch Kincaid Grade: 8-10 (accessible)
+   - Average sentence length: 15-20 words
+   - Complex words: <10% with 3+ syllables
+   - Long sentences: <5 sentences over 25 words
+
+6. **Style Guide Compliance**
+   - Release Highlights: 5-8 items, user-focused, business value emphasized
+   - New Features: "What" and "Why" focus, benefit-driven
+   - Enhancements: "Before vs. After" with metrics
+   - Bug Fixes: Brief acknowledgment + resolution focus
+
+# REPORT STRUCTURE
+
+1. Overall Rating (EXCELLENT/GOOD/FAIR/POOR)
+2. Scoring Rubrics Assessment (4 sections with ratings + evidence)
+3. Readability Metrics (with target ranges and compliance)
+4. Style Guide Compliance (checklist format)
+5. Final Verdict and Publication Status
 
 # CONSTRAINTS
-Follow these rules strictly:
 
-1. **Approval**: Before starting any analysis, display a message asking: "I'm ready to evaluate the quality of release_notes_v$ARGUMENTS.md. Would you like me to proceed with the quality check? (yes/no)" Wait for user confirmation before continuing.
-
-2. **Folder Management**: If the `Output/Quality Reports` folder does not exist, create it using `mkdir -p "Output/Quality Reports"`.
-
-3. **Readability Analysis**:
-   - Calculate Flesch Reading Ease score (0-100 scale)
-   - Calculate Gunning Fog Index (years of formal education needed)
-   - Calculate average sentence length (words per sentence)
-   - Calculate average words per paragraph
-   - Identify sentences longer than 25 words
-   - Identify complex words (3+ syllables)
-   - Indetify paragraphs with more than 3 sentences
-   - For each metric, compare against recommended thresholds and suggest improvements if needed
-
-4. **Content Quality Evaluation**:
-   - **Accuracy**: Cross-reference each release note item with the original ticket in tickets.json. Flag any discrepancies, missing information, or invented content.
-   - **Completeness**: Verify that ALL tickets for version "$ARGUMENTS" are represented in the release notes. List any missing tickets.
-   - **Relevance**: Evaluate whether each item clearly explains user benefits and avoids unnecessary technical jargon.
-   - **Clarity**: Identify ambiguous phrases, passive voice overuse, or confusing explanations.
-   - **Consistency**: Check that formatting, tone, and structure are consistent across all sections.
-   - **Style Guide Compliance**: Verify that each section follows the rules defined in the quality-metrics MCP server.
-
-5. **Release Highlights Evaluation**:
-   - Verify that highlights are present
-   - Check that highlights represent the most impactful changes
-   - Ensure highlights are written from user perspective
-   - Confirm no technical jargon in highlights
-
-6. **Table Quality Check**:
-   - Verify all tables are properly formatted
-   - Check that Field and Description columns are present
-   - Ensure no bullet points were used for structured field data
-
-7. **Scoring**:
-   - Assign an overall quality score (0-100)
-   - Break down scores by category (Readability, Accuracy, Completeness, Relevance, Clarity, Consistency)
-   - Use the scoring rubrics from the quality-metrics MCP server
-
-8. **Recommendations**:
-   - Provide specific, actionable suggestions for improvement
-   - Prioritize recommendations by impact (Critical, High, Medium, Low)
-   - If no changes are required for a metric, explicitly state "No changes required"
-
-9. **No Footer Content**: The quality report must end immediately after the final recommendation. Do not add any footer, timestamp, or closing remarks.
-
-# OUTPUT
-Generate a comprehensive quality report in Markdown format with this exact structure:
+- Use quality-metrics MCP tools for all rubric definitions
+- Do NOT invent rubrics; always fetch from quality-metrics server
+- Reports must be saved in Output/Quality/ folder exclusively
+- Include specific evidence/examples from the release notes
+- Provide actionable feedback if issues are found
