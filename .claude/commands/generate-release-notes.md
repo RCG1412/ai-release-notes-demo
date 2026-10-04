@@ -11,7 +11,7 @@ Generate professional release notes for version $ARGUMENTS by reading developer 
 - **Data Source**: A file named `tickets.json` exists in the current directory. It contains an array of developer tickets, each with fields: `id`, `title`, `type` (e.g., "New Feature", "Enhancement", "Bug"), `version`, and `description`.
 - **Style Guide**: An MCP server named `style-guide` is available with a tool called `get_writing_rule`. It returns specific writing instructions for each content type (e.g., "Release Highlights", "New Feature", "Enhancement", "Bug").
 - **Output Location**: All generated files must be saved inside the `Output/Release Notes/` folder.
-- **Output Filename:** The output markdown file should have filename as release_notes_vX.X.X.md where vx.x.x = $ARGUMENTS (e.g., if if user prompts generate release notes 2.4.0 then output filename will be release_notes_v2.4.0.md)
+- **Output Filename:** The output markdown file should have filename as release_notes_vX.X.X.md where X.X.X = $ARGUMENTS (e.g., if if user prompts generate release notes 2.4.0 then output filename will be release_notes_v2.4.0.md)
 
 
 
